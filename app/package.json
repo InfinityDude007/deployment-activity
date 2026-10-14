@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-router/node": "^8.4.0",
     "@react-router/serve": "^8.4.0",
+    "@supabase/supabase-js": "^2.117.3",
     "isbot": "^5.1.36",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -25,5 +26,8 @@
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vite": "^8.0.3"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }
