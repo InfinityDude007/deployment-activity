@@ -1,15 +1,65 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-ink: #070b10;
+  --color-panel: #0d141c;
+  --color-panel2: #121b25;
+  --color-line: #1f2d3b;
+  --color-fg: #d5e1ec;
+  --color-dim: #7d91a5;
+  --color-neon: #3ddc84;
+  --color-amber: #ffb547;
+  --color-cyan: #5cc8ff;
+  --color-danger: #ff6b6b;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  color-scheme: dark;
+  background-color: var(--color-ink);
+  color: var(--color-fg);
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(61 220 132 / 0.12), transparent 70%),
+    linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgb(61 220 132 / 0.35);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
   }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pop-in {
+  animation: pop-in 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop-in {
+    animation: none;
+  }
+}
+
+code,
+pre,
+.font-mono {
+  font-variant-ligatures: none;
 }
